@@ -22,6 +22,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
   final userTextController = TextEditingController();
   final passwordController = TextEditingController();
 
+  bool obstext = true;
+
   Future singIn() async {
 
     if(userTextController.text == '' || passwordController.text == ''){
@@ -89,7 +91,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
                 MyTextField(
                     controller: userTextController,
                     hintText: 'User',
-                    obscureText: false
+                    obscureText: false,
+                    icon: Icon(Icons.nat),
+                    color: Colors.transparent,
+                    onTap: () {},
                 ),
 
                 const SizedBox(height: 10,),
@@ -98,7 +103,14 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
                 MyTextField(
                     controller: passwordController,
                     hintText: 'Password',
-                    obscureText: true
+                    obscureText: obstext,
+                    icon: Icon(Icons.remove_red_eye),
+                    color: Colors.grey,
+                    onTap: () {
+                      setState(() {
+                        obstext = !obstext;
+                      });
+                    },
                 ),
 
                 const SizedBox(height: 25,),
