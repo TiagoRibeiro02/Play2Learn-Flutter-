@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:play2learn/Pages/login.dart';
 
 import 'Pages/home_page.dart';
 
@@ -7,7 +8,7 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => Home_Page(),
+        '/': (context) => Login(onTap: () {}),
       },
     )
   );
