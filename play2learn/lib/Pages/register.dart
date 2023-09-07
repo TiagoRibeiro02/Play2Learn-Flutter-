@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:lottie/lottie.dart';
 import 'package:play2learn/Pages/home_page.dart';
 import 'login.dart';
 
@@ -85,9 +86,12 @@ class _RegisterState extends State<Register> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //logo
-                const Icon(
-                  Icons.lock,
-                  size: 100,
+                Lottie.asset(
+                    'assets/animation_brain.json',
+                    repeat: false,
+                    height: 250,
+                    width: 250,
+                    animate: false
                 ),
 
                 const SizedBox(height: 50,),
@@ -105,7 +109,7 @@ class _RegisterState extends State<Register> {
                 //email textfield
                 MyTextField(
                     controller: userTextController,
-                    hintText: 'User',
+                    hintText: 'Email',
                     obscureText: false,
                     icon: Icon(Icons.nat),
                     color: Colors.transparent,
@@ -147,6 +151,8 @@ class _RegisterState extends State<Register> {
                     onTap: register,
                     text: 'Sing Up'
                 ),
+
+                const SizedBox(height: 10,),
 
                 //go to register page
                 Row(

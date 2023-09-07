@@ -74,6 +74,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
                   repeat: false,
                   height: 250,
                   width: 250,
+                  animate: false
                 ),
 
                 const SizedBox(height: 40,),
@@ -91,7 +92,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
                 //email textfield
                 MyTextField(
                     controller: userTextController,
-                    hintText: 'User',
+                    hintText: 'Email',
                     obscureText: false,
                     icon: Icon(Icons.nat),
                     color: Colors.transparent,
