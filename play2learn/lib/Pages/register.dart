@@ -21,13 +21,14 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   //Text editing controllers
   final userTextController = TextEditingController();
+  final emailTextController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   bool obstext = true;
 
   Future register() async{
-    if(userTextController.text == '' || passwordController.text == '' || confirmPasswordController.text == ''){
+    if(userTextController.text == '' || emailTextController.text == '' || passwordController.text == '' || confirmPasswordController.text == ''){
       Fluttertoast.showToast(
         msg: 'All fields must be filled',
         toastLength: Toast.LENGTH_SHORT,
@@ -38,7 +39,7 @@ class _RegisterState extends State<Register> {
       if(passwordController.text == confirmPasswordController.text){
         var url = Uri.parse("https://unreined-squeak.000webhostapp.com/register.php");
         var response = await http.post(url, body: {
-          'email': userTextController.text,
+          'email': emailTextController.text,
           'password': passwordController.text,
         });
 
@@ -106,9 +107,21 @@ class _RegisterState extends State<Register> {
 
                   const SizedBox(height: 25,),
 
+                  //username textfield
+                  MyTextField(
+                    controller: userTextController,
+                    hintText: 'Username',
+                    obscureText: false,
+                    icon: Icon(Icons.nat),
+                    color: Colors.transparent,
+                    onTap: () {},
+                  ),
+
+                  const SizedBox(height: 10,),
+
                   //email textfield
                   MyTextField(
-                      controller: userTextController,
+                      controller: emailTextController,
                       hintText: 'Email',
                       obscureText: false,
                       icon: Icon(Icons.nat),

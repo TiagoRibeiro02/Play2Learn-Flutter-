@@ -19,14 +19,14 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
   //Text editing controllers
-  final userTextController = TextEditingController();
+  final emailTextController = TextEditingController();
   final passwordController = TextEditingController();
 
   bool obstext = true;
 
   Future singIn() async {
 
-    if(userTextController.text == '' || passwordController.text == ''){
+    if(emailTextController.text == '' || passwordController.text == ''){
       Fluttertoast.showToast(
         msg: 'Fields must be filled',
         toastLength: Toast.LENGTH_SHORT,
@@ -36,7 +36,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
     }else {
       var url = Uri.parse("https://unreined-squeak.000webhostapp.com/db.php");
       var response = await http.post(url, body: {
-        'email': userTextController.text,
+        'email': emailTextController.text,
         'password': passwordController.text,
       });
 
@@ -91,8 +91,8 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
                   //email textfield
                   MyTextField(
-                      controller: userTextController,
-                      hintText: 'Email',
+                      controller: emailTextController,
+                      hintText: 'Email/Username',
                       obscureText: false,
                       icon: Icon(Icons.nat),
                       color: Colors.transparent,
