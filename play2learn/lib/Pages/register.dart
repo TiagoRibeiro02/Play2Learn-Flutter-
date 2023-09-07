@@ -41,6 +41,7 @@ class _RegisterState extends State<Register> {
         var response = await http.post(url, body: {
           'email': emailTextController.text,
           'password': passwordController.text,
+          'username': userTextController.text,
         });
 
         var data = json.decode(response.body);

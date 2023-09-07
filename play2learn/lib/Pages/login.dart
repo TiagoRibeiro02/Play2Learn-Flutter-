@@ -38,6 +38,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
       var response = await http.post(url, body: {
         'email': emailTextController.text,
         'password': passwordController.text,
+        'username': emailTextController.text,
       });
 
       var data = json.decode(response.body);
