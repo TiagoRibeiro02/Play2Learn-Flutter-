@@ -35,7 +35,7 @@ class _RegisterState extends State<Register> {
         gravity: ToastGravity.CENTER,
         fontSize: 16.0,
       );
-    }else if(!emailTextController.text.contains('@')){
+    }else if(!emailTextController.text.contains('@') && !emailTextController.text.contains('.')){
       Fluttertoast.showToast(
         msg: 'Email must contain @',
         toastLength: Toast.LENGTH_SHORT,
@@ -62,7 +62,15 @@ class _RegisterState extends State<Register> {
           );
 
           Navigator.push(context, MaterialPageRoute(builder: (context) => Home_Page()));
-        } else {
+        } else if(data == "exists"){
+          Fluttertoast.showToast(
+            msg: 'Username or email already used',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            fontSize: 16.0,
+          );
+        }
+        else {
           Fluttertoast.showToast(
             msg: 'Error creating user',
             toastLength: Toast.LENGTH_SHORT,
