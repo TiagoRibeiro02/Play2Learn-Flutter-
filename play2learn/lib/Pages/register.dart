@@ -35,7 +35,15 @@ class _RegisterState extends State<Register> {
         gravity: ToastGravity.CENTER,
         fontSize: 16.0,
       );
-    }else {
+    }else if(!emailTextController.text.contains('@')){
+      Fluttertoast.showToast(
+        msg: 'Email must contain @',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        fontSize: 16.0,
+      );
+    }
+    else {
       if(passwordController.text == confirmPasswordController.text){
         var url = Uri.parse("https://unreined-squeak.000webhostapp.com/register.php");
         var response = await http.post(url, body: {
