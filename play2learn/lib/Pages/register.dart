@@ -24,6 +24,7 @@ class _RegisterState extends State<Register> {
   final emailTextController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  final profcodeTextController = TextEditingController();
 
   bool obstext = true;
 
@@ -50,10 +51,15 @@ class _RegisterState extends State<Register> {
           'email': emailTextController.text,
           'password': passwordController.text,
           'username': userTextController.text,
+          'code': profcodeTextController.text,
         });
 
         var data = json.decode(response.body);
-        if (data == "success") {
+        String dataText = data.toString();
+
+        List<String> result = dataText.split(',');
+
+        if (result[0] == "success") {
           Fluttertoast.showToast(
             msg: 'User created',
             toastLength: Toast.LENGTH_SHORT,
@@ -173,6 +179,18 @@ class _RegisterState extends State<Register> {
                       color: Colors.transparent,
                       onTap: () {},
                   ),
+
+                  //code textfield
+                  MyTextField(
+                    controller: profcodeTextController,
+                    hintText: 'Professor code',
+                    obscureText: false,
+                    icon: Icon(Icons.nat),
+                    color: Colors.transparent,
+                    onTap: () {},
+                  ),
+
+                  const SizedBox(height: 10,),
 
                   const SizedBox(height: 25,),
 

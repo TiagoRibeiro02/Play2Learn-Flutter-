@@ -42,7 +42,12 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
       });
 
       var data = json.decode(response.body);
-      if (data == "success") {
+      String dataText = data.toString();
+
+      List<String> result = dataText.split(',');
+      print(result);
+
+      if (result[0] == "success") {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => Home_Page()));
       } else {
