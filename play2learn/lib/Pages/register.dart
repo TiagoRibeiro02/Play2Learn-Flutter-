@@ -180,6 +180,8 @@ class _RegisterState extends State<Register> {
                       onTap: () {},
                   ),
 
+                  const SizedBox(height: 10,),
+
                   //code textfield
                   MyTextField(
                     controller: profcodeTextController,
@@ -189,8 +191,6 @@ class _RegisterState extends State<Register> {
                     color: Colors.transparent,
                     onTap: () {},
                   ),
-
-                  const SizedBox(height: 10,),
 
                   const SizedBox(height: 25,),
 
