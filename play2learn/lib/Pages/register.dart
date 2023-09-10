@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
-import 'package:play2learn/Pages/home_page_professor.dart';
 
 import '../Auth/professor_or_student.dart';
 import '../components/button.dart';
