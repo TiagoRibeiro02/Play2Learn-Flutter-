@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:play2learn/Pages/home_page_professor.dart';
 
+import '../Auth/professor_or_student.dart';
 import '../components/button.dart';
 import '../components/text_field.dart';
 
@@ -66,7 +67,7 @@ class _RegisterState extends State<Register> {
             fontSize: 16.0,
           );
 
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const Home_Page_Professor()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
         } else if(data == "exists"){
           Fluttertoast.showToast(
             msg: 'Username or email already used',

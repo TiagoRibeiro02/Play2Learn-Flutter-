@@ -48,7 +48,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
       List<String> result = dataText.split(',');
 
       if (result[0] == "success") {
-        //ProfessorOrStudent(role: result[1]);
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
       } else {
         Fluttertoast.showToast(
