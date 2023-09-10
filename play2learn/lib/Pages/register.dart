@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
-import 'package:play2learn/Pages/home_page.dart';
-import 'login.dart';
+import 'package:play2learn/Pages/home_page_professor.dart';
 
 import '../components/button.dart';
 import '../components/text_field.dart';
@@ -67,7 +66,7 @@ class _RegisterState extends State<Register> {
             fontSize: 16.0,
           );
 
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Home_Page()));
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const Home_Page_Professor()));
         } else if(data == "exists"){
           Fluttertoast.showToast(
             msg: 'Username or email already used',
@@ -130,36 +129,36 @@ class _RegisterState extends State<Register> {
 
                   const SizedBox(height: 25,),
 
-                  //username textfield
+                  //username text-field
                   MyTextField(
                     controller: userTextController,
                     hintText: 'Username',
                     obscureText: false,
-                    icon: Icon(Icons.nat),
+                    icon: const Icon(Icons.nat),
                     color: Colors.transparent,
                     onTap: () {},
                   ),
 
                   const SizedBox(height: 10,),
 
-                  //email textfield
+                  //email text-field
                   MyTextField(
                       controller: emailTextController,
                       hintText: 'Email',
                       obscureText: false,
-                      icon: Icon(Icons.nat),
+                      icon: const Icon(Icons.nat),
                       color: Colors.transparent,
                       onTap: () {},
                   ),
 
                   const SizedBox(height: 10,),
 
-                  //password textfield
+                  //password text-field
                   MyTextField(
                       controller: passwordController,
                       hintText: 'Password',
                       obscureText: obstext,
-                    icon: Icon(Icons.remove_red_eye),
+                    icon: const Icon(Icons.remove_red_eye),
                     color: Colors.grey,
                     onTap: () {
                       setState(() {
@@ -170,24 +169,24 @@ class _RegisterState extends State<Register> {
 
                   const SizedBox(height: 10,),
 
-                  //confirm password textfield
+                  //confirm password text-field
                   MyTextField(
                       controller: confirmPasswordController,
                       hintText: 'Confirm password',
                       obscureText: true,
-                      icon: Icon(Icons.nat),
+                      icon: const Icon(Icons.nat),
                       color: Colors.transparent,
                       onTap: () {},
                   ),
 
                   const SizedBox(height: 10,),
 
-                  //code textfield
+                  //code text-field
                   MyTextField(
                     controller: profcodeTextController,
                     hintText: 'Professor code',
                     obscureText: false,
-                    icon: Icon(Icons.nat),
+                    icon: const Icon(Icons.nat),
                     color: Colors.transparent,
                     onTap: () {},
                   ),
@@ -195,7 +194,7 @@ class _RegisterState extends State<Register> {
                   const SizedBox(height: 25,),
 
 
-                  //singin button
+                  //sing up button
                   MyButton(
                       onTap: register,
                       text: 'Sing Up'

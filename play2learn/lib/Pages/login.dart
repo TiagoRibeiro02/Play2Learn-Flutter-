@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
-import 'package:play2learn/Pages/home_page.dart';
+import 'package:play2learn/Auth/professor_or_student.dart';
+import 'package:play2learn/Pages/home_page_professor.dart';
 import 'package:lottie/lottie.dart';
 
 import '../Components/button.dart';
@@ -45,11 +46,10 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
       String dataText = data.toString();
 
       List<String> result = dataText.split(',');
-      print(result);
 
       if (result[0] == "success") {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Home_Page()));
+        //ProfessorOrStudent(role: result[1]);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
       } else {
         Fluttertoast.showToast(
           msg: 'The user or password are wrong',
@@ -95,24 +95,24 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
                   const SizedBox(height: 25,),
 
-                  //email textfield
+                  //email text-field
                   MyTextField(
                       controller: emailTextController,
                       hintText: 'Email/Username',
                       obscureText: false,
-                      icon: Icon(Icons.nat),
+                      icon: const Icon(Icons.nat),
                       color: Colors.transparent,
                       onTap: () {},
                   ),
 
                   const SizedBox(height: 10,),
 
-                  //password textfield
+                  //password text-field
                   MyTextField(
                       controller: passwordController,
                       hintText: 'Password',
                       obscureText: obstext,
-                      icon: Icon(Icons.remove_red_eye),
+                      icon: const Icon(Icons.remove_red_eye),
                       color: Colors.grey,
                       onTap: () {
                         setState(() {
@@ -123,7 +123,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
                   const SizedBox(height: 25,),
 
-                  //singin button
+                  //sing in button
                   MyButton(
                       onTap: singIn,
                       text: 'Sing In'),
