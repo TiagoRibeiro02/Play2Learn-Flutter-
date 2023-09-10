@@ -1,5 +1,10 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:play2learn/Pages/PagesStudents/groups_page.dart';
+import 'package:play2learn/Pages/PagesStudents/logout_page.dart';
+import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
+import 'package:play2learn/Pages/PagesStudents/settings_page.dart';
 
 class Home_Page_Student extends StatefulWidget {
   const Home_Page_Student({super.key});
@@ -9,37 +14,25 @@ class Home_Page_Student extends StatefulWidget {
 }
 
 class _Home_Page_StudentState extends State<Home_Page_Student> {
+
+  final screens = [
+    ProfilePage(),
+    GroupsPage(),
+    Home_Page_Student(),
+    SettingsPage(),
+    LogoutPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.grey[300],
 
-      appBar: AppBar(
-        backgroundColor: Colors.grey[300],
-        elevation: 0,
-      ),
-
-      drawer: Drawer(
-        backgroundColor: Colors.blueGrey,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            DrawerHeader(
-              child: Text(''),
-            ),
-            ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('My Account', style: TextStyle(color: Colors.grey[700])),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
 
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 100.0),
+          padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 70.0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -87,22 +80,22 @@ class _Home_Page_StudentState extends State<Home_Page_Student> {
                   child: ElevatedButton(
                       onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
-                      backgroundColor: Colors.grey[800],
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),),
+                      backgroundColor: Colors.cyan[800],
                       padding: const EdgeInsets.symmetric(vertical: 8.0)
                     ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(
                             Icons.play_arrow,
-                            color: Colors.white,
+                            color: Colors.deepOrange[400],
                             size: 30.0,
                           ),
 
-                          SizedBox(width: 10.0,),
+                          const SizedBox(width: 10.0,),
 
-                          Text(
+                          const Text(
                               'PLAY',
                             style: TextStyle(
                               color: Colors.white,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:play2learn/Pages/PagesStudents/page_controller_students.dart';
 import 'package:play2learn/Pages/home_page_professor.dart';
-import 'package:play2learn/Pages/home_page_student.dart';
+import 'package:play2learn/Pages/PagesStudents/home_page_student.dart';
 
 class ProfessorOrStudent extends StatefulWidget {
   final String? role;
@@ -16,7 +17,7 @@ class _ProfessorOrStudentState extends State<ProfessorOrStudent> {
     if(widget.role == 'p'){
       return Home_Page_Professor();
     } else{
-      return Home_Page_Student();
+      return PageControllerStudents();
     }
   }
 }
