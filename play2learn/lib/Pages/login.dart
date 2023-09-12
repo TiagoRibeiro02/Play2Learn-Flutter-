@@ -49,6 +49,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
       if (result[0] == "success") {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
+        //TODO: colocar a conta nas shared preferences
       } else {
         Fluttertoast.showToast(
           msg: 'The user or password are wrong',

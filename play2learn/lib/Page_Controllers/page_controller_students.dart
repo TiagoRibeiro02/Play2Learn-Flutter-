@@ -18,11 +18,11 @@ class _PageControllerStudentsState extends State<PageControllerStudents> {
   int index = 2;
 
   final screens = [
-    ProfilePage(),
-    GroupsPage(),
-    Home_Page_Student(),
-    SettingsPage(),
-    LogoutPage(),
+    const ProfilePage(),
+    const GroupsPage(),
+    const Home_Page_Student(),
+    const SettingsPage(),
+    const LogoutPage(),
   ];
 
   @override
@@ -37,7 +37,6 @@ class _PageControllerStudentsState extends State<PageControllerStudents> {
         index: 2,
         onTap: (index)=> setState(() {
           this.index = index;
-          print(index);
         }),
         items: [
           Icon(Icons.person, color: Colors.grey[300]),

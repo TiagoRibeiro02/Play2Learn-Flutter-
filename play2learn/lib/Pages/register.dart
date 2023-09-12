@@ -65,7 +65,7 @@ class _RegisterState extends State<Register> {
             gravity: ToastGravity.CENTER,
             fontSize: 16.0,
           );
-
+          //TODO: colocar a conta nas shared preferences
           Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
         } else if(data == "exists"){
           Fluttertoast.showToast(
@@ -94,7 +94,6 @@ class _RegisterState extends State<Register> {
 
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
