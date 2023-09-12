@@ -4,7 +4,7 @@ import 'package:play2learn/Pages/PagesStudents/home_page_student.dart';
 import 'package:play2learn/Pages/PagesStudents/settings_page.dart';
 
 import 'groups_page.dart';
-import 'logout_page.dart';
+import '../logout_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});

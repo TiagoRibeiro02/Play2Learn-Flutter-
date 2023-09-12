@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:play2learn/Pages/PagesStudents/groups_page.dart';
-import 'package:play2learn/Pages/PagesStudents/logout_page.dart';
+import 'package:play2learn/Pages/logout_page.dart';
 import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
 import 'package:play2learn/Pages/PagesStudents/settings_page.dart';
 
