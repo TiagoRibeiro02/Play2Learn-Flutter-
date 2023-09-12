@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:play2learn/Pages/PagesStudents/page_controller_students.dart';
+import 'package:play2learn/Page_Controllers/page_controller_students.dart';
 import 'package:play2learn/Pages/home_page_professor.dart';
 import 'package:play2learn/Pages/PagesStudents/home_page_student.dart';
 
