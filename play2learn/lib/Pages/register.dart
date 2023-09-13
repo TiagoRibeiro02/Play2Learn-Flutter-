@@ -59,6 +59,7 @@ class _RegisterState extends State<Register> {
 
         List<String> result = dataText.split(',');
 
+        String role = result[1];
         String email = result[2];
         String username = result[3];
 
@@ -71,7 +72,8 @@ class _RegisterState extends State<Register> {
           );
           await UserPreferences.setUsername(username);
           await UserPreferences.setEmail(email);
-          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
+          await UserPreferences.setRole(role);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: role)));
         } else if(data == "exists"){
           Fluttertoast.showToast(
             msg: 'Username or email already used',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 import 'package:play2learn/Components/button2.dart';
+import 'package:play2learn/utils/shared_prefs.dart';
 
 class LogoutPage extends StatefulWidget {
   const LogoutPage({super.key});
@@ -12,9 +13,12 @@ class LogoutPage extends StatefulWidget {
 
 class _LogoutPageState extends State<LogoutPage> {
 
-  void logout() {
+  Future logout() async{
+    await UserPreferences.removeEmail();
+    await UserPreferences.removeUsername();
+    await UserPreferences.removeRole();
     Navigator.popAndPushNamed(context, '/');
-    //TODO: apagar a conta que estiver nas shared preferences
+
   }
 
   static Future<void> exit({bool? animated}) async {

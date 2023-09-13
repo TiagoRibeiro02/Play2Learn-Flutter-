@@ -48,13 +48,15 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
       List<String> result = dataText.split(',');
 
+      String role = result[1];
       String email = result[2];
       String username = result[3];
 
       if (result[0] == "success") {
         await UserPreferences.setUsername(username);
         await UserPreferences.setEmail(email);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
+        await UserPreferences.setRole(role);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: role)));
       } else {
         Fluttertoast.showToast(
           msg: 'The user or password are wrong',
