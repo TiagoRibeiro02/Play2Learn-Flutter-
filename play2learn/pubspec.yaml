@@ -39,6 +39,7 @@ dependencies:
   fluttertoast:
   lottie:
   curved_navigation_bar:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:

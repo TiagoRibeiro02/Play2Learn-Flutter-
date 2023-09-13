@@ -8,6 +8,7 @@ import 'package:lottie/lottie.dart';
 import '../Auth/professor_or_student.dart';
 import '../components/button.dart';
 import '../components/text_field.dart';
+import '../utils/shared_prefs.dart';
 
 class Register extends StatefulWidget {
   final Function()? onTap;
@@ -58,6 +59,9 @@ class _RegisterState extends State<Register> {
 
         List<String> result = dataText.split(',');
 
+        String email = result[2];
+        String username = result[3];
+
         if (result[0] == "success") {
           Fluttertoast.showToast(
             msg: 'User created',
@@ -65,7 +69,8 @@ class _RegisterState extends State<Register> {
             gravity: ToastGravity.CENTER,
             fontSize: 16.0,
           );
-          //TODO: colocar a conta nas shared preferences
+          await UserPreferences.setUsername(username);
+          await UserPreferences.setEmail(email);
           Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
         } else if(data == "exists"){
           Fluttertoast.showToast(

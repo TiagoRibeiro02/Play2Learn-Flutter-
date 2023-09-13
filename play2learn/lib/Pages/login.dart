@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:play2learn/Auth/professor_or_student.dart';
 import 'package:play2learn/Pages/home_page_professor.dart';
 import 'package:lottie/lottie.dart';
+import 'package:play2learn/utils/shared_prefs.dart';
 
 import '../Components/button.dart';
 import '../Components/text_field.dart';
@@ -47,9 +48,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
 
       List<String> result = dataText.split(',');
 
+      String email = result[2];
+      String username = result[3];
+
       if (result[0] == "success") {
+        await UserPreferences.setUsername(username);
+        await UserPreferences.setEmail(email);
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: result[1])));
-        //TODO: colocar a conta nas shared preferences
       } else {
         Fluttertoast.showToast(
           msg: 'The user or password are wrong',
