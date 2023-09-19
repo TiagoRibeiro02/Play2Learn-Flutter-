@@ -21,7 +21,7 @@ class _PageControllerStudentsState extends State<PageControllerStudents> {
   final screens = [
     const ProfilePage(),
     const GroupsPage(),
-    const Home_Page_Student(),
+    const HomePageStudent(),
     const SettingsPage(),
     const LogoutPage(),
   ];
@@ -34,16 +34,16 @@ class _PageControllerStudentsState extends State<PageControllerStudents> {
     return (await showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
+        title: const Text('Are you sure?'),
+        content: const Text('Do you want to exit an App'),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(context).pop(false), //<-- SEE HERE
-            child: new Text('No'),
+            child: const Text('No'),
           ),
           TextButton(
             onPressed: () => exit(), // <-- SEE HERE
-            child: new Text('Yes'),
+            child: const Text('Yes'),
           ),
         ],
       ),

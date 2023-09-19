@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class Home_Page_Professor extends StatefulWidget {
-  const Home_Page_Professor({super.key});
+class HomePageProfessor extends StatefulWidget {
+  const HomePageProfessor({super.key});
 
   @override
-  State<Home_Page_Professor> createState() => _Home_Page_ProfessorState();
+  State<HomePageProfessor> createState() => _HomePageProfessorState();
 }
 
-class _Home_Page_ProfessorState extends State<Home_Page_Professor> {
+class _HomePageProfessorState extends State<HomePageProfessor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

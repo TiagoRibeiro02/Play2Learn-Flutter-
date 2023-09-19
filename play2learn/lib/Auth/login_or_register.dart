@@ -21,8 +21,8 @@ class _LoginOrRegisterState extends State<LoginOrRegister> {
   String role = '';
 
   Future prefscheck() async{
-    user = await UserPreferences.getUsername();
-    role = await UserPreferences.getRole();
+    user = UserPreferences.getUsername();
+    role = UserPreferences.getRole();
 
     if(user != ''){
       setState(() {

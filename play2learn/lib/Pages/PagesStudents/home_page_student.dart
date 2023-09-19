@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:play2learn/Pages/PagesStudents/groups_page.dart';
@@ -6,21 +5,21 @@ import 'package:play2learn/Pages/logout_page.dart';
 import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
 import 'package:play2learn/Pages/PagesStudents/settings_page.dart';
 
-class Home_Page_Student extends StatefulWidget {
-  const Home_Page_Student({super.key});
+class HomePageStudent extends StatefulWidget {
+  const HomePageStudent({super.key});
 
   @override
-  State<Home_Page_Student> createState() => _Home_Page_StudentState();
+  State<HomePageStudent> createState() => _HomePageStudentState();
 }
 
-class _Home_Page_StudentState extends State<Home_Page_Student> {
+class _HomePageStudentState extends State<HomePageStudent> {
 
   final screens = [
-    ProfilePage(),
-    GroupsPage(),
-    Home_Page_Student(),
-    SettingsPage(),
-    LogoutPage(),
+    const ProfilePage(),
+    const GroupsPage(),
+    const HomePageStudent(),
+    const SettingsPage(),
+    const LogoutPage(),
   ];
 
   @override
