@@ -42,10 +42,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         color: Colors.grey[700],
                         fontSize: 20.0
                     ),),
-                  const SizedBox(height: 20,),
+                  const SizedBox(height: 30,),
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                     height: 300,
                     width: MediaQuery. of(context). size. width,
                     //color: Colors.red,
@@ -53,11 +53,13 @@ class _ProfilePageState extends State<ProfilePage> {
                       border: Border.all(color: Colors.grey),
                       borderRadius: BorderRadius.circular(20.0)
                     ),
-                    child: Text(
-                      UserPreferences.getBio(),
-                      style: TextStyle(
-                        
-                    ),),
+                    child: SingleChildScrollView(
+                      child: Text(
+                        UserPreferences.getBio(),
+                        style: TextStyle(
+                          fontSize: 17.0
+                      ),),
+                    ),
                   ),
 
                   //TODO: add horizontal scrollview of classmates

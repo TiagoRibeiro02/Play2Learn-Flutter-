@@ -30,6 +30,6 @@ class UserPreferences {
   static Future setBio(String bio) async =>
       await _preferences.setString('bio', bio);
 
-  static String getBio() => _preferences.getString('bio') ?? 'aa';
+  static String getBio() => _preferences.getString('bio') ?? '';
   
 }
