@@ -26,5 +26,10 @@ class UserPreferences {
   static String getRole() => _preferences.getString('role') ?? '';
 
   static Future removeRole() async => await _preferences.remove('role');
+
+  static Future setBio(String bio) async =>
+      await _preferences.setString('bio', bio);
+
+  static String getBio() => _preferences.getString('bio') ?? 'aa';
   
 }

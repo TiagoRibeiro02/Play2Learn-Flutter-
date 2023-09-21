@@ -14,22 +14,55 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  width: 120, height: 120,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                      child: Image(image: AssetImage(''),)),
-                ),
-                const SizedBox(height: 10,),
-                Text(UserPreferences.getUsername()),
-                Text(UserPreferences.getEmail()),
-              ],
+            padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 70.0),
+            child: Center(
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 120, height: 120,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                        child: Image(image: AssetImage('assets/user.png'),)), //TODO: mudar se user tiver img
+                  ),
+                  const SizedBox(height: 20,),
+                  Text(UserPreferences.getUsername(),
+                    style: TextStyle(
+                        color: Colors.grey[900],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30.0
+
+                    ),),
+                  const SizedBox(height: 5,),
+                  Text(UserPreferences.getEmail(),
+                    style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 20.0
+                    ),),
+                  const SizedBox(height: 20,),
+
+                  Container(
+                    padding: EdgeInsets.fromLTRB(25, 25, 0, 0),
+                    height: 300,
+                    width: MediaQuery. of(context). size. width,
+                    //color: Colors.red,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(20.0)
+                    ),
+                    child: Text(
+                      UserPreferences.getBio(),
+                      style: TextStyle(
+                        
+                    ),),
+                  ),
+
+                  //TODO: add horizontal scrollview of classmates
+                ],
+              ),
             ),
           ),
         ),
