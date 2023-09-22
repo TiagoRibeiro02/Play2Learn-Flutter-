@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:play2learn/Components/button.dart';
+import 'package:play2learn/Components/button2.dart';
 import 'package:play2learn/utils/shared_prefs.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -60,6 +62,14 @@ class _ProfilePageState extends State<ProfilePage> {
                           fontSize: 17.0
                       ),),
                     ),
+                  ),
+
+                  const SizedBox(height: 20,),
+
+                  Button2(
+                      onTap: () {},
+                      text: 'Edit Profile',
+                      color: Colors.deepOrange[400]
                   ),
 
                   //TODO: add horizontal scrollview of classmates
