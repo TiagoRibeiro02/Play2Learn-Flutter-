@@ -34,6 +34,8 @@ class _EditProfileState extends State<EditProfile> {
     }
   }
 
+  //TODO: save image in db
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
