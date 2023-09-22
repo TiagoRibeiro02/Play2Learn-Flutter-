@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:play2learn/Components/button.dart';
 import 'package:play2learn/Components/button2.dart';
+import 'package:play2learn/Pages/PagesStudents/edit_profile_page.dart';
 import 'package:play2learn/utils/shared_prefs.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -20,7 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 70.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 70.0),
             child: Center(
               child: Column(
                 children: [
@@ -28,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 120, height: 120,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(100),
-                        child: Image(image: AssetImage('assets/user.png'),)), //TODO: mudar se user tiver img
+                        child: const Image(image: AssetImage('assets/user.png'),)), //TODO: mudar se user tiver img
                   ),
                   const SizedBox(height: 20,),
                   Text(UserPreferences.getUsername(),
@@ -47,7 +47,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(height: 30,),
 
                   Container(
-                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                     height: 300,
                     width: MediaQuery. of(context). size. width,
                     //color: Colors.red,
@@ -58,7 +58,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: SingleChildScrollView(
                       child: Text(
                         UserPreferences.getBio(),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 17.0
                       ),),
                     ),
@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   const SizedBox(height: 20,),
 
                   Button2(
-                      onTap: () {},
+                      onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => EditProfile()));},
                       text: 'Edit Profile',
                       color: Colors.deepOrange[400]
                   ),
