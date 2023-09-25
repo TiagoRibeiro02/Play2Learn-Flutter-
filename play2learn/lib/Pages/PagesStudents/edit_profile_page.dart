@@ -1,10 +1,13 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:play2learn/Components/bio_text_field.dart';
+import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
 import 'package:play2learn/utils/shared_prefs.dart';
+import 'package:http/http.dart' as http;
 
 import '../../Components/button2.dart';
 import '../../Components/text_field.dart';
@@ -23,6 +26,20 @@ class _EditProfileState extends State<EditProfile> {
   final bioTextController = TextEditingController();
   final imagePicker = ImagePicker();
   File? imageFile;
+
+
+  Future update() async{
+    var url = Uri.parse("https://unreined-squeak.000webhostapp.com/updateInfo.php");
+    var response = await http.post(url, body: {
+      'originalemail': UserPreferences.getEmail(),
+      'email': emailTextController.text,
+      'username': emailTextController.text,
+      'biblio': bioTextController.text,
+    });
+
+    var data = json.decode(response.body);
+    String dataText = data.toString();
+  }
 
   pick(ImageSource source) async {
     final pickedFile = await imagePicker.pickImage(source: source);
@@ -44,7 +61,8 @@ class _EditProfileState extends State<EditProfile> {
         centerTitle: true,
         backgroundColor: Colors.grey[300],
         elevation: 0,
-        leading: Icon(Icons.arrow_back, color: Colors.grey[900],),
+        leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.grey[900],),
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},),
         title: Text('Edit Profile', style: TextStyle(color: Colors.grey[900]),),
       ),
       body: Center(
@@ -86,7 +104,7 @@ class _EditProfileState extends State<EditProfile> {
               ],
             ),
 
-              const SizedBox(height: 10,),
+              const SizedBox(height: 60,),
 
               MyTextField(
                 controller: usernameTextController,
@@ -99,17 +117,17 @@ class _EditProfileState extends State<EditProfile> {
 
               const SizedBox(height: 10,),
 
-              //password text-field
               MyTextField(
                 controller: emailTextController,
                 hintText: UserPreferences.getEmail(),
                 obscureText: false,
-                icon: const Icon(Icons.remove_red_eye),
+                icon: const Icon(Icons.nat),
                 color: Colors.transparent,
-                onTap: () {}
+                onTap: () {},
               ),
 
               const SizedBox(height: 10,),
+
 
               BioTextField(
                   controller: bioTextController,
@@ -120,10 +138,10 @@ class _EditProfileState extends State<EditProfile> {
                   obscureText: false,
               ),
 
-              const SizedBox(height: 20,),
+              const SizedBox(height: 40,),
 
               Button2(
-                  onTap: () {},
+                  onTap: update,
                   text: 'Save',
                   color: Colors.deepOrange[400]
               ),
@@ -155,12 +173,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 title: Text(
-                  'Galeria',
+                  'Gallery',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  // Buscar imagem da galeria
+                  // search image in the gallery
                   pick(ImageSource.gallery);
                 },
               ),
@@ -175,12 +193,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 title: Text(
-                  'Câmera',
+                  'Camera',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  // Fazer foto da câmera
+                  // Take a photo
                   pick(ImageSource.camera);
                 },
               ),
@@ -195,12 +213,12 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 title: Text(
-                  'Remover',
+                  'Remove',
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  // Tornar a foto null
+                  // remove image
                   setState(() {
                     imageFile = null;
                   });
