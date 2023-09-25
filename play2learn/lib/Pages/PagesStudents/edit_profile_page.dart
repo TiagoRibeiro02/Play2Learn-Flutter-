@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:play2learn/Components/bio_text_field.dart';
+import 'package:play2learn/Page_Controllers/page_controller_students.dart';
 import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
 import 'package:play2learn/utils/shared_prefs.dart';
 import 'package:http/http.dart' as http;
@@ -82,7 +83,7 @@ class _EditProfileState extends State<EditProfile> {
         backgroundColor: Colors.grey[300],
         elevation: 0,
         leading: IconButton(icon: Icon(Icons.arrow_back, color: Colors.grey[900],),
-        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));},),
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const PageControllerStudents(id: 0,)));},),
         title: Text('Edit Profile', style: TextStyle(color: Colors.grey[900]),),
       ),
       body: Center(

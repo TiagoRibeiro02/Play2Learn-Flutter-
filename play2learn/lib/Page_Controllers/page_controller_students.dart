@@ -8,7 +8,8 @@ import 'package:play2learn/Pages/PagesStudents/profile_page.dart';
 import 'package:play2learn/Pages/PagesStudents/settings_page.dart';
 
 class PageControllerStudents extends StatefulWidget {
-  const PageControllerStudents({super.key});
+  final int id;
+  const PageControllerStudents({super.key, required this.id});
 
   @override
   State<PageControllerStudents> createState() => _PageControllerStudentsState();
@@ -17,6 +18,12 @@ class PageControllerStudents extends StatefulWidget {
 class _PageControllerStudentsState extends State<PageControllerStudents> {
 
   int index = 2;
+
+  @override
+  void initState() {
+    index = widget.id;
+    super.initState();
+  }
 
   final screens = [
     const ProfilePage(),
@@ -62,7 +69,7 @@ class _PageControllerStudentsState extends State<PageControllerStudents> {
           color: Colors.cyan[800] as Color,
           buttonBackgroundColor: Colors.deepOrange[400],
           animationDuration: const Duration(milliseconds: 400),
-          index: 2,
+          index: widget.id,
           onTap: (index)=> setState(() {
             this.index = index;
           }),

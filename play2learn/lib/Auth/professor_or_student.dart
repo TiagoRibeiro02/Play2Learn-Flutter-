@@ -16,7 +16,7 @@ class _ProfessorOrStudentState extends State<ProfessorOrStudent> {
     if(widget.role == 'p'){
       return const HomePageProfessor();
     } else{
-      return const PageControllerStudents();
+      return const PageControllerStudents(id: 2,);
     }
   }
 }
