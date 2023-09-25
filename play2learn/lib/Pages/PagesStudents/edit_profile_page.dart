@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:play2learn/Components/bio_text_field.dart';
@@ -33,12 +34,14 @@ class _EditProfileState extends State<EditProfile> {
     var response = await http.post(url, body: {
       'originalemail': UserPreferences.getEmail(),
       'email': emailTextController.text,
-      'username': emailTextController.text,
+      'username': usernameTextController.text,
       'biblio': bioTextController.text,
     });
 
     var data = json.decode(response.body);
     String dataText = data.toString();
+
+    print(dataText);
   }
 
   pick(ImageSource source) async {
