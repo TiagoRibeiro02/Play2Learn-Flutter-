@@ -31,5 +31,7 @@ class UserPreferences {
       await _preferences.setString('bio', bio);
 
   static String getBio() => _preferences.getString('bio') ?? '';
+
+  static Future removeBio() async => await _preferences.remove('bio');
   
 }

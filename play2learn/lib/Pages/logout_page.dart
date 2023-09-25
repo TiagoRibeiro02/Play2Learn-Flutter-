@@ -17,6 +17,7 @@ class _LogoutPageState extends State<LogoutPage> {
     await UserPreferences.removeEmail();
     await UserPreferences.removeUsername();
     await UserPreferences.removeRole();
+    await UserPreferences.removeBio();
     Navigator.popAndPushNamed(context, '/');
 
   }

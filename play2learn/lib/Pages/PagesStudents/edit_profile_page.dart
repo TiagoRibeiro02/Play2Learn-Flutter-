@@ -24,7 +24,7 @@ class _EditProfileState extends State<EditProfile> {
 
   final emailTextController = TextEditingController();
   final usernameTextController = TextEditingController();
-  final bioTextController = TextEditingController();
+  final bioTextController = TextEditingController(text: UserPreferences.getBio());
   final imagePicker = ImagePicker();
   File? imageFile;
 
@@ -41,7 +41,24 @@ class _EditProfileState extends State<EditProfile> {
     var data = json.decode(response.body);
     String dataText = data.toString();
 
-    print(dataText);
+    if(dataText == 'successfuleb'){
+      //email updated
+      UserPreferences.setEmail(emailTextController.text);
+      UserPreferences.setBio(bioTextController.text);
+
+    }else if(dataText == 'successfulub'){
+      //username updated
+      UserPreferences.setUsername(usernameTextController.text);
+      UserPreferences.setBio(bioTextController.text);
+
+    }else if(dataText == 'successfulall'){
+      //all updated
+      UserPreferences.setEmail(emailTextController.text);
+      UserPreferences.setUsername(usernameTextController.text);
+      UserPreferences.setBio(bioTextController.text);
+    } else if(dataText == 'successfulbio'){
+      UserPreferences.setBio(bioTextController.text);
+    }
   }
 
   pick(ImageSource source) async {
