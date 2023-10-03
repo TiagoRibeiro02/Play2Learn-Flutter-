@@ -50,11 +50,13 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin{
       String role = result[1];
       String email = result[2];
       String username = result[3];
+      String biblio = result[4];
 
       if (result[0] == "success") {
         await UserPreferences.setUsername(username);
         await UserPreferences.setEmail(email);
         await UserPreferences.setRole(role);
+        await UserPreferences.setBio(biblio);
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProfessorOrStudent(role: role)));
       } else {
         Fluttertoast.showToast(
